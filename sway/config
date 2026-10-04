@@ -4,7 +4,7 @@ set $term kitty
 set $menu rofi -show drun
 
 ### Фон (пока однотонный, картинку поставим позже)
-output * bg #1e1e2e solid_color
+output * bg /mnt/data/Pictures/walls/current fill
 
 ### Клавиатура: две раскладки, переключение Alt+Shift
 input type:keyboard {
@@ -104,3 +104,4 @@ bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 include /etc/sway/config.d/*
 exec_always autotiling
+bindsym $mod+Shift+w exec ~/dotfiles/bin/wallhaven.sh anime
