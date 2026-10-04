@@ -4,7 +4,7 @@ set $term kitty
 set $menu rofi -show drun
 
 ### Фон (пока однотонный, картинку поставим позже)
-output * bg /mnt/data/Pictures/walls/current fill
+output * bg ~/.local/share/backgrounds/tsukiyo/1-castle.jpg fill
 
 ### Клавиатура: две раскладки, переключение Alt+Shift
 input type:keyboard {
@@ -23,8 +23,10 @@ input type:touchpad {
 gaps inner 6
 gaps outer 2
 default_border pixel 2
-client.focused          #89b4fa #89b4fa #1e1e2e #89b4fa #89b4fa
-client.unfocused        #313244 #313244 #a6adc8 #313244 #313244
+client.focused          #88a4ad #88a4ad #121820 #8ca483 #88a4ad
+client.unfocused        #1a222b #1a222b #6a7175 #1a222b #1a222b
+client.focused_inactive #243039 #243039 #b3b0a8 #243039 #243039
+client.urgent           #b37a72 #b37a72 #121820 #b37a72 #b37a72
 
 ### Автозапуск
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
