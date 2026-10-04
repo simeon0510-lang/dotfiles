@@ -1,0 +1,105 @@
+### Основное
+set $mod Mod4
+set $term foot
+set $menu fuzzel
+
+### Фон (пока однотонный, картинку поставим позже)
+output * bg #1e1e2e solid_color
+
+### Клавиатура: две раскладки, переключение Alt+Shift
+input type:keyboard {
+    xkb_layout "us,ru"
+    xkb_options "grp:alt_shift_toggle"
+}
+
+### Тачпад
+input type:touchpad {
+    tap enabled
+    dwt enabled
+    natural_scroll disabled
+}
+
+### Внешний вид
+gaps inner 6
+gaps outer 2
+default_border pixel 2
+client.focused          #89b4fa #89b4fa #1e1e2e #89b4fa #89b4fa
+client.unfocused        #313244 #313244 #a6adc8 #313244 #313244
+
+### Автозапуск
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec nm-applet --indicator
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec mako
+exec waybar
+
+### Запуск программ
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Выйти из Sway?' -B 'Да' 'swaymsg exit'
+
+### Фокус
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+### Перемещение окон
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+### Рабочие столы
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+
+### Раскладка окон
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+
+### Изменение размера
+mode "resize" {
+    bindsym Left resize shrink width 20px
+    bindsym Right resize grow width 20px
+    bindsym Up resize shrink height 20px
+    bindsym Down resize grow height 20px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Мультимедийные клавиши
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+### Скриншоты (область в буфер обмена)
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+
+include /etc/sway/config.d/*
