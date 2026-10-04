@@ -15,3 +15,8 @@ ln -sf "$FILE" "$DIR/current"
 
 swaymsg output '*' bg "$FILE" fill
 echo "Поставлено: $FILE"
+
+if command -v wal >/dev/null; then
+  wal -i "$FILE" -n -q
+  pkill -SIGUSR1 -x kitty || true
+fi
