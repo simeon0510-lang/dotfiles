@@ -31,7 +31,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec nm-applet --indicator
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec mako
-exec waybar
+exec_always waybar
 
 ### Запуск программ
 bindsym $mod+Return exec $term

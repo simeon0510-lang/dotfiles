@@ -1,0 +1,16 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["clock"],
+  "modules-right": ["sway/language", "pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "tray"],
+  "sway/language": { "format": "{short}" },
+  "clock": { "format": "{:%H:%M  %d.%m}" },
+  "cpu": { "format": "CPU {usage}%" },
+  "memory": { "format": "RAM {percentage}%" },
+  "temperature": { "format": "{temperatureC}°C", "critical-threshold": 80 },
+  "backlight": { "format": "BRT {percent}%" },
+  "battery": { "format": "BAT {capacity}%", "format-charging": "CHR {capacity}%" },
+  "pulseaudio": { "format": "VOL {volume}%", "format-muted": "MUTE" }
+}
