@@ -1,0 +1,22 @@
+// Как в sway: us/ru, переключение Alt+Shift
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:alt_shift_toggle"
+        }
+        numlock
+        repeat-delay 300
+        repeat-rate 50
+    }
+    touchpad {
+        tap
+        dwt
+        accel-speed 0.2
+    }
+    focus-follows-mouse max-scroll-amount="1%"
+}
+
+gestures {
+    hot-corners { off; }
+}

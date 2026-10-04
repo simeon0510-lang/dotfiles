@@ -1,0 +1,17 @@
+// niri: конфиг на основе github.com/revaljonathan/val-niri,
+// без его Quickshell, в палитре Tsukiyo 月夜
+
+include "inputs.kdl"
+include "layout.kdl"
+include "colors.kdl"
+include "startup.kdl"
+include "rules.kdl"
+include "binds.kdl"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"

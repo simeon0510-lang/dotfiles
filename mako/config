@@ -1,0 +1,30 @@
+# mako: уведомления в палитре Tsukiyo, квадратные, как в val-niri
+font=JetBrainsMono Nerd Font 10
+background-color=#121820e6
+text-color=#c8c4bb
+border-color=#243039
+border-size=1
+border-radius=0
+progress-color=over #88a4ad55
+padding=10
+margin=8
+width=300
+default-timeout=5000
+anchor=top-right
+layer=overlay
+icons=1
+max-icon-size=40
+
+[urgency=critical]
+border-color=#b37a72
+default-timeout=0
+
+# OSD громкости/яркости: короткое, без иконки, заменяет само себя
+[app-name=osd]
+default-timeout=1500
+icons=0
+format=<b>%s</b>\n%b
+border-color=#88a4ad
+
+[mode=do-not-disturb]
+invisible=1

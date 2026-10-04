@@ -1,0 +1,6 @@
+// xwayland-satellite niri запускает сам при первом X11-окне
+spawn-sh-at-startup "swaybg -m fill -i ~/.local/share/backgrounds/val/pixel-castle.png"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/val.jsonc -s ~/.config/waybar/val.css"
+spawn-at-startup "mako"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-sh-at-startup "swayidle -w timeout 600 'swaylock -f' before-sleep 'swaylock -f'"

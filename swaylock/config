@@ -1,0 +1,32 @@
+# Tsukiyo 月夜
+image=~/.local/share/backgrounds/tsukiyo/2-moon-reach.jpg
+scaling=fill
+indicator-radius=80
+indicator-thickness=3
+font=Adwaita Sans
+ignore-empty-password
+show-failed-attempts
+
+color=121820
+inside-color=0e131999
+inside-clear-color=0e131999
+inside-ver-color=0e131999
+inside-wrong-color=0e131999
+ring-color=4a5a63
+ring-clear-color=c4b48a
+ring-ver-color=88a4ad
+ring-wrong-color=b37a72
+key-hl-color=88a4ad
+bs-hl-color=b37a72
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+separator-color=00000000
+text-color=c8c4bb
+text-clear-color=c4b48a
+text-ver-color=88a4ad
+text-wrong-color=b37a72
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=6a7175

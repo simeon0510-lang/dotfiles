@@ -1,0 +1,8 @@
+# Из github.com/revaljonathan/val-niri (без превью .md через glow)
+[mgr]
+sort_by = "mtime"
+sort_dir_first = true
+sort_reverse = true
+sort_sensitive = false
+sort_translit = false
+ratio = [1, 3, 4]

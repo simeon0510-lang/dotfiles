@@ -1,0 +1,36 @@
+# Prompt в духе val-niri: «~/путь on ветка ······ at 22:42:04», ниже ❯
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+format = "$directory$git_branch$git_status$fill$cmd_duration$time$line_break$character"
+
+[directory]
+style = "#88a4ad"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "on [$branch]($style) "
+style = "#c8c4bb"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "#b37a72"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = "took [$duration]($style) "
+style = "#c4b48a"
+
+[time]
+disabled = false
+format = "at [$time]($style)"
+time_format = "%H:%M:%S"
+style = "#9c8898"
+
+[character]
+success_symbol = "[❯](#c8c4bb)"
+error_symbol = "[❯](#b37a72)"

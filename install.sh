@@ -18,9 +18,13 @@ link_file() {
   echo "ok: $dst -> $src"
 }
 
-for d in kitty rofi fastfetch nvim btop cava; do link_dir "$d"; done
-for f in sway/config waybar/config.jsonc waybar/style.css \
-         waybar/clock.jsonc waybar/clock.css; do link_file "$f"; done
+for d in kitty rofi fastfetch nvim btop cava niri swaylock yazi; do link_dir "$d"; done
+for f in sway/config waybar/config.jsonc waybar/niri.jsonc waybar/style.css \
+         waybar/clock.jsonc waybar/clock.css waybar/val.jsonc waybar/val.css \
+         mako/config; do link_file "$f"; done
+
+ln -sfn "$D/starship/starship.toml" "$C/starship.toml" && echo "ok: $C/starship.toml"
+mkdir -p "$HOME/.bashrc.d" && ln -sfn "$D/bash/val.sh" "$HOME/.bashrc.d/val.sh" && echo "ok: ~/.bashrc.d/val.sh"
 
 chmod +x "$D"/bin/*.sh 2>/dev/null || true
 echo "Готово."

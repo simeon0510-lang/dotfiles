@@ -1,0 +1,119 @@
+/* Верхняя панель в духе val-niri, палитра Tsukiyo 月夜 */
+
+@define-color bg       rgba(14, 19, 25, 0.92);
+@define-color surface  #1a222b;
+@define-color select   #243039;
+@define-color muted    #4a5a63;
+@define-color dim      #6a7175;
+@define-color fg       #c8c4bb;
+@define-color fg-dark  #b3b0a8;
+@define-color mist     #88a4ad;
+@define-color moon     #c4b48a;
+@define-color red      #b37a72;
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 11px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg-dark;
+}
+
+tooltip {
+  background: #0e1319;
+  border: 1px solid @select;
+}
+
+tooltip label {
+  color: @fg;
+}
+
+/* рабочие столы: номера, активный на светлой плашке */
+#workspaces {
+  margin-left: 4px;
+}
+
+#workspaces button {
+  color: @muted;
+  padding: 0 6px;
+  margin: 3px 1px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+#workspaces button:hover {
+  color: @fg;
+  background: @surface;
+}
+
+#workspaces button.active {
+  color: #121820;
+  background: @mist;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#mpris {
+  color: @fg-dark;
+  padding: 0 10px;
+}
+
+#clock {
+  color: @fg;
+}
+
+/* правый край: островки на плашках, как в его баре */
+#tray,
+#battery,
+#stats,
+#controls {
+  background: @surface;
+  margin: 3px 2px;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+#controls {
+  margin-right: 4px;
+}
+
+#battery,
+#cpu,
+#temperature,
+#memory,
+#wireplumber,
+#backlight,
+#bluetooth,
+#network {
+  color: @fg;
+  padding: 0 4px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @mist;
+}
+
+#battery.warning:not(.charging) {
+  color: @moon;
+}
+
+#battery.critical:not(.charging),
+#temperature.critical {
+  color: @red;
+}
+
+#wireplumber.muted,
+#wireplumber.source.muted,
+#network.disconnected {
+  color: @muted;
+}

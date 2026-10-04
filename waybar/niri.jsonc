@@ -1,0 +1,111 @@
+// Tsukiyo 月夜 для niri: то же, что config.jsonc, но с niri/workspaces
+[
+  {
+    "name": "bar",
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "spacing": 2,
+    "modules-left": ["custom/launcher", "niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "bluetooth", "network", "wireplumber", "backlight", "battery"],
+
+    "custom/launcher": {
+      "format": "󰀻",
+      "tooltip": false,
+      "on-click": "rofi -show drun"
+    },
+
+    "niri/workspaces": {
+      "format": "{index}"
+    },
+
+    "clock": {
+      "format": "{:%A  %H:%M}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month",
+        "format": {
+          "months": "<span color='#88a4ad'><b>{}</b></span>",
+          "weekdays": "<span color='#6a7175'>{}</span>",
+          "today": "<span color='#c4b48a'><b>{}</b></span>"
+        }
+      }
+    },
+
+    "tray": { "icon-size": 14, "spacing": 8 },
+
+    "bluetooth": {
+      "format": "󰂯",
+      "format-disabled": "󰂲",
+      "format-off": "󰂲",
+      "format-connected": "󰂱",
+      "tooltip-format-connected": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}",
+      "on-click": "blueman-manager"
+    },
+
+    "network": {
+      "format-wifi": "{icon}",
+      "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+      "format-ethernet": "󰈀",
+      "format-linked": "󰈀",
+      "format-disconnected": "󰤮",
+      "tooltip-format-wifi": "{essid} · {signalStrength}%\n{ipaddr}/{cidr}",
+      "tooltip-format-ethernet": "{ifname} · {ipaddr}/{cidr}",
+      "tooltip-format-disconnected": "Нет сети",
+      "interval": 5,
+      "on-click": "iwgtk"
+    },
+
+    "wireplumber": {
+      "format": "{icon}",
+      "format-muted": "󰝟",
+      "format-icons": ["󰕿", "󰖀", "󰕾"],
+      "tooltip-format": "{node_name} · {volume}%",
+      "scroll-step": 5,
+      "on-click": "pavucontrol",
+      "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "backlight": {
+      "format": "{icon}",
+      "format-icons": ["󰃞", "󰃟", "󰃠"],
+      "tooltip-format": "Яркость {percent}%"
+    },
+
+    "battery": {
+      "states": { "warning": 30, "critical": 15 },
+      "format": "{icon}",
+      "format-charging": "󰂄",
+      "format-plugged": "󰚥",
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "tooltip-format": "{capacity}% · {timeTo}"
+    }
+  },
+
+  {
+    "name": "island",
+    "layer": "top",
+    "position": "top",
+    "height": 26,
+    "modules-center": ["mpris", "battery#island"],
+
+    "mpris": {
+      "format": "{status_icon}  {dynamic}",
+      "format-stopped": "",
+      "dynamic-order": ["title", "artist"],
+      "dynamic-len": 40,
+      "status-icons": { "playing": "󰏤", "paused": "󰐊" },
+      "on-click": "playerctl play-pause"
+    },
+
+    "battery#island": {
+      "format": "{icon}  {capacity}%",
+      "format-charging": "󰂄  {capacity}%",
+      "format-plugged": "󰚥  {capacity}%",
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "tooltip-format": "{timeTo}"
+    }
+  }
+]

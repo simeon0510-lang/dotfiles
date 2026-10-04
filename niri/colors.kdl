@@ -1,0 +1,32 @@
+// Tsukiyo 月夜: github.com/Arjun010011/omarchy-tsukiyo-theme
+
+layout {
+    border {
+        active-gradient from="#88a4ad" to="#8ca483" angle=45
+        inactive-color "#1a222b"
+        urgent-color   "#b37a72"
+    }
+    tab-indicator {
+        active-color   "#88a4ad"
+        inactive-color "#4a5a63"
+        urgent-color   "#b37a72"
+    }
+    insert-hint {
+        color "#88a4ad80"
+    }
+    shadow {
+        color "#0a0e1399"
+        inactive-color "#0a0e1344"
+    }
+}
+
+overview {
+    backdrop-color "#0a0e13"
+}
+
+recent-windows {
+    highlight {
+        active-color "#88a4ad"
+        urgent-color "#b37a72"
+    }
+}

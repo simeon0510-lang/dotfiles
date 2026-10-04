@@ -1,0 +1,123 @@
+// Верхняя панель в духе val-niri (его Quickshell-бар), палитра Tsukiyo
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "spacing": 0,
+  "modules-left": ["niri/workspaces", "mpris"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "battery", "group/stats", "group/controls"],
+
+  "niri/workspaces": {
+    "format": "{index}"
+  },
+
+  "mpris": {
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon}  {dynamic}",
+    "format-stopped": "",
+    "dynamic-order": ["title", "artist"],
+    "dynamic-len": 28,
+    "player-icons": { "default": "󰎆", "spotify": "", "firefox": "󰈹", "zen": "󰈹" },
+    "status-icons": { "paused": "󰏤" },
+    "on-click": "playerctl play-pause"
+  },
+
+  "clock": {
+    "format": "󰃭  {:%A, %d %B %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#88a4ad'><b>{}</b></span>",
+        "weekdays": "<span color='#6a7175'>{}</span>",
+        "today": "<span color='#c4b48a'><b>{}</b></span>"
+      }
+    }
+  },
+
+  "tray": { "icon-size": 13, "spacing": 6 },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}"
+  },
+
+  "group/stats": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "temperature", "memory"]
+  },
+
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "interval": 3,
+    "on-click": "kitty -e btop"
+  },
+
+  "temperature": {
+    "thermal-zone": 3,
+    "format": "󰔏 {temperatureC}°C",
+    "critical-threshold": 85,
+    "interval": 5
+  },
+
+  "memory": {
+    "format": "󰍛 {used:0.1f}GiB",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+  },
+
+  "group/controls": {
+    "orientation": "horizontal",
+    "modules": ["wireplumber", "wireplumber#source", "backlight", "bluetooth", "network"]
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬",
+    "format-muted": "󰍭",
+    "tooltip-format": "{node_name} · {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "Яркость {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "",
+    "format-off": "",
+    "format-connected": "󰂱",
+    "tooltip-format-connected": "{device_enumerate}",
+    "on-click": "blueman-manager"
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} · {signalStrength}%\n{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Нет сети",
+    "interval": 5,
+    "on-click": "nm-connection-editor"
+  }
+}
