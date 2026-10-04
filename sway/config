@@ -103,3 +103,4 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 include /etc/sway/config.d/*
+exec_always autotiling
